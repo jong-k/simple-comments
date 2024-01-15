@@ -1,10 +1,11 @@
 import Profile from "./Profile";
-import { getImageUrl } from "./utils";
+import Avatar from "./Avatar";
 
 export default function Gallery() {
   return (
     <div>
       <h1>Notable Scientists</h1>
+      {/* challenge1 */}
       <Profile
         name="Maria Skłodowska-Curie"
         imageId="szV5sdG"
@@ -23,6 +24,14 @@ export default function Gallery() {
         profession="geochemist"
         awards={["Miyake Prize for geochemistry", "Tanaka Prize"]}
         discovered="a method for measuring carbon dioxide in seawater"
+      />
+      {/*  challenge2 */}
+      <Avatar
+        person={{
+          name: "Gregorio Y. Zara",
+          imageId: "7vQD0fP",
+        }}
+        size={40}
       />
     </div>
   );

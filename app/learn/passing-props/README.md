@@ -8,3 +8,14 @@
 ## props의 기본값 설정
 
 
+## challenges
+### 1. 컴포넌트 추출
+과제
+- [x] `Profile` 컴포넌트 따로 분리하기
+
+### 2. props 만들기
+과제
+- [x] `Avatar` 컴포넌트 만들기
+- [x] Avatar 컴포넌트에 이미지 크기 조정을 위한 `size` props 만들기
+- [x] size < 90: getImageUrl 함수에 "s" 전달
+- [x] size >= 90: "b" 전달

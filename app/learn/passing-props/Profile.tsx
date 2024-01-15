@@ -1,4 +1,5 @@
-import { getImageUrl } from "@/app/learn/passing-props/utils";
+import Avatar from "./Avatar";
+import { getImageUrl } from "./utils";
 
 interface ProfileProps {
   name: string;
