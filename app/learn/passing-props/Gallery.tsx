@@ -1,5 +1,6 @@
 import Profile from "./Profile";
 import Avatar from "./Avatar";
+import CardProfile from "./CardProfile";
 
 export default function Gallery() {
   return (
@@ -25,6 +26,7 @@ export default function Gallery() {
         awards={["Miyake Prize for geochemistry", "Tanaka Prize"]}
         discovered="a method for measuring carbon dioxide in seawater"
       />
+      <h2>------------------------</h2>
       {/*  challenge2 */}
       <Avatar
         person={{
@@ -33,6 +35,9 @@ export default function Gallery() {
         }}
         size={40}
       />
+      <h2>------------------------</h2>
+      {/* challenge3 */}
+      <CardProfile />
     </div>
   );
 }

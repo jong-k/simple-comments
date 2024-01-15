@@ -9,7 +9,7 @@
 
 
 ## challenges
-### 1. 컴포넌트 추출
+### 1. 컴포넌트 분리
 과제
 - [x] `Profile` 컴포넌트 따로 분리하기
 
@@ -19,3 +19,8 @@
 - [x] Avatar 컴포넌트에 이미지 크기 조정을 위한 `size` props 만들기
 - [x] size < 90: getImageUrl 함수에 "s" 전달
 - [x] size >= 90: "b" 전달
+
+### 3. children props 사용
+과제
+- [x] Card 컴포넌트 분리
+- [x] children props 만들고 다른 JSX 전달
