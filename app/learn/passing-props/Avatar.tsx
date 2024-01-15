@@ -1,3 +1,4 @@
+"use client";
 import { getImageUrl } from "./utils";
 
 interface AvatarProps {
@@ -8,8 +9,12 @@ interface AvatarProps {
   size: number;
 }
 
+// 값이 높을 수록 선명한 디스플레이 (1 ~ 2 사이)
+const RATIO = window.devicePixelRatio;
+
 export default function Avatar({ person, size }: AvatarProps) {
-  const sizeLevel = size >= 90 ? "b" : "s";
+  console.log("window.devicePixelRatio", RATIO); // 1.5
+  const sizeLevel = size * RATIO >= 90 ? "b" : "s";
 
   return (
     <img

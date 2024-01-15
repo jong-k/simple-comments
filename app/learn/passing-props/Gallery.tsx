@@ -33,7 +33,7 @@ export default function Gallery() {
           name: "Gregorio Y. Zara",
           imageId: "7vQD0fP",
         }}
-        size={40}
+        size={90}
       />
       <h2>------------------------</h2>
       {/* challenge3 */}
