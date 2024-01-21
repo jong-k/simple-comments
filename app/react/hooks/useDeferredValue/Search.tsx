@@ -6,10 +6,15 @@ export default function Search() {
   const deferredQuery = useDeferredValue(query);
   const isStale = query !== deferredQuery;
   return (
-    <div className="w-full h-full bg-amber-200 p-10">
+    <div className="p-10 border-b-2">
       <label>
         Search albums:
-        <input value={query} onChange={(e) => setQuery(e.target.value)} />
+        <input
+          placeholder="비틀즈 앨범 제목을 검색하세요"
+          className="w-[30rem] bg-slate-200"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
       </label>
       <Suspense fallback={<h2>Loading...</h2>}>
         <div
