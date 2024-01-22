@@ -17,17 +17,32 @@ export default function SimpleForm() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   return (
+    <MyProviders theme={theme}>
+      <WelcomePanel />
+      <label>
+        <input
+          type="checkbox"
+          checked={theme === "dark"}
+          onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+        />
+        Use dark mode
+      </label>
+    </MyProviders>
+  );
+}
+
+interface MyProvidersProps {
+  children: React.ReactNode;
+  theme: Theme;
+}
+
+function MyProviders({ children, theme }: MyProvidersProps) {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  return (
     <ThemeContext.Provider value={theme}>
       <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-        <WelcomePanel />
-        <label>
-          <input
-            type="checkbox"
-            checked={theme === "dark"}
-            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-          />
-          Use dark mode
-        </label>
+        {children}
       </CurrentUserContext.Provider>
     </ThemeContext.Provider>
   );
