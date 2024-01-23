@@ -17,7 +17,7 @@ function SlowItem({ text }: { text: string }) {
     // Do nothing for 1 ms per item to emulate extremely slow code
   }
 
-  return <li className="p-1 m-1 border border-cyan-300">Text: {text}</li>;
+  return <li className="listItem">Text: {text}</li>;
 }
 
 export default SlowList;

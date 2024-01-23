@@ -1,0 +1,29 @@
+.caseBox {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.caseContainer {
+  border: 1px solid black;
+
+  .title {
+    margin: 1rem;
+  }
+}
+
+.listItem {
+  padding: 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid cyan;
+}
+
+.searchContainer {
+  padding: 1rem;
+  border: 2px solid black;
+
+  input {
+    width: 30rem;
+  }
+}

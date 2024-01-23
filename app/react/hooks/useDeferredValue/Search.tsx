@@ -6,12 +6,11 @@ export default function Search() {
   const deferredQuery = useDeferredValue(query);
   const isStale = query !== deferredQuery;
   return (
-    <div className="p-10 border-b-2">
+    <div className="searchContainer">
       <label>
         Search albums:
         <input
           placeholder="비틀즈 앨범 제목을 검색하세요"
-          className="w-[30rem] bg-slate-200"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
