@@ -39,6 +39,8 @@ interface MyProvidersProps {
 function MyProviders({ children, theme }: MyProvidersProps) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
+  // setCurrentUser를 직접 provider에 전달하기보다, handler로 만들고
+  // useCallback으로 래핑한 뒤 전달하면, 불필요한 리렌더링 방지할 수 있다
   return (
     <ThemeContext.Provider value={theme}>
       <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
