@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import ShippingForm from "./ShippingForm";
 import type { ProductPageProps } from "./FastProductPage";
 
@@ -7,15 +6,12 @@ export default function SlowProductPage({
   referrer,
   theme,
 }: ProductPageProps) {
-  const handleSubmit = useCallback(
-    (orderDetails: any) => {
-      post("/product/" + productId + "/buy", {
-        referrer,
-        orderDetails,
-      });
-    },
-    [productId, referrer],
-  );
+  const handleSubmit = (orderDetails: any) => {
+    post("/product/" + productId + "/buy", {
+      referrer,
+      orderDetails,
+    });
+  };
 
   return (
     <div className={theme}>

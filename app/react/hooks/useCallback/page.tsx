@@ -1,39 +1,21 @@
 "use client";
-import { useState } from "react";
 import "./index.scss";
-import FastProductPage from "./FastProductPage";
-import SlowProductPage from "./SlowProductPage";
+import FastCase from "./FastCase";
+import SlowCase from "./SlowCase";
 
 export default function UseCallback() {
-  const [isDark, setIsDark] = useState(false);
   return (
-    <>
-      <label>
-        <input
-          type="checkbox"
-          checked={isDark}
-          onChange={(e) => setIsDark(e.target.checked)}
-        />
-        Dark mode
-      </label>
-      <hr />
+    <div>
+      <h1>useCallback</h1>
       <div>
-        <h2>Fast</h2>
-        <FastProductPage
-          referrer="wizard_of_oz"
-          productId={123}
-          theme={isDark ? "dark" : "light"}
-        />
+        <h2>useCallback을 사용하여 빠른 테마 변경</h2>
+        <FastCase />
       </div>
-      <hr />
+      ----------------------------------------------------------
       <div>
-        <h2>Slow</h2>
-        <SlowProductPage
-          referrer="wizard_of_oz"
-          productId={123}
-          theme={isDark ? "dark" : "light"}
-        />
+        <h2>useCallback 미사용, 느린 테마 변경</h2>
+        <SlowCase />
       </div>
-    </>
+    </div>
   );
 }
