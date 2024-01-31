@@ -5,3 +5,4 @@
 - JS in JSX with Curly Braces
 - Passing Props to a Component
 - Conditional Rendering
+- Rendering Lists
