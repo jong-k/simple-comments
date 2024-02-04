@@ -6,3 +6,4 @@
 - Passing Props to a Component
 - Conditional Rendering
 - Rendering Lists
+- Keeping Components Pure
