@@ -12,6 +12,9 @@ export default function Hooks() {
       <Link href="/react/hooks/useDeferredValue">
         <h2 className="text-2xl">useDeferredValue</h2>
       </Link>
+      <Link href="/react/hooks/useLayoutEffect">
+        <h2 className="text-2xl">useLayoutEffect</h2>
+      </Link>
     </div>
   );
 }
