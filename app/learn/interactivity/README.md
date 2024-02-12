@@ -4,5 +4,5 @@
 - [ ] Render and commit
 - [ ] State as a snapshot
 - [ ] Queueing a series of state updates
-- [ ] Updating objects in state
+- [x] Updating objects in state
 - [ ] Updating arrays in state
