@@ -3,4 +3,9 @@
 ## Describing the UI
 
 ## Adding Interactivity
+
 - Responding to Events
+
+## Managing State
+
+- Preserving and Resetting State

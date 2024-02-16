@@ -9,6 +9,9 @@ export default function Learn() {
       <Link href="/learn/interactivity">
         <h2>Adding Interactivity</h2>
       </Link>
+      <Link href="/learn/managing-state">
+        <h2>Managing State</h2>
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 # Adding Interactivity
+
 - [x] Responding to events
 - [ ] State: a component’s memory
 - [ ] Render and commit
