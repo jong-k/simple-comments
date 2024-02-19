@@ -24,3 +24,85 @@
 - 이 때, 컴포넌트2는 상태 A를 바꾸는 버튼을 갖고 있다고 할때,
 - 컴포넌트2의 버튼을 클릭하여 상태 A를 바꾸게 되면, 컴포넌트2도 재정의되며(메모리 주소 달라짐) 컴포넌트2가 갖던 상태가 초기화된다
 - 따라서 컴포넌트는 항상 최상위 범위에서 정의해야 한다
+
+## 같은 위치에서 state를 초기화하기
+### 방법 1. 다른 위치에 컴포넌트를 렌더링하기
+- 1번째 위치, 2번째 위치에 각각 렌더링
+- `isPlayerA` 일때, `!isPlayerA` 일때 의 완전히 다른 표현식이므로 다른 위치로 인식된다
+
+```jsx
+import { useState } from 'react';
+
+export default function Scoreboard() {
+  const [isPlayerA, setIsPlayerA] = useState(true);
+  return (
+    <div>
+      {isPlayerA &&
+        <Counter person="Taylor" />
+      }
+      {!isPlayerA &&
+        <Counter person="Sarah" />
+      }
+      <button onClick={() => {
+        setIsPlayerA(!isPlayerA);
+      }}>
+        Next player!
+      </button>
+    </div>
+  );
+}
+```
+
+- 아래처럼 동일한 위치이면 state가 보존된다
+```jsx
+import { useState } from 'react';
+
+export default function Scoreboard() {
+  const [isPlayerA, setIsPlayerA] = useState(true);
+  return (
+    <div>
+      {/* 동일한 위치로 인식됨 */}
+      <Counter person={isPlayerA ? "Taylor" : "Sarah"} />
+      <button onClick={() => {
+        setIsPlayerA(!isPlayerA);
+      }}>
+        Next player!
+      </button>
+    </div>
+  );
+}
+```
+
+### 방법 2. key를 이용해 state를 초기화하기
+- `key` 를 활용해 두 컴포넌트를 구분할 수 있다
+  - `key`는 부모 컴포넌트 내에서만 유일하면 된다
+- 같은 위치에 나타나지만, state를 공유하지 않는다
+- key가 바뀌면, 하위 트리가 전부 초기화된다
+
+```jsx
+import { useState } from 'react';
+
+export default function Scoreboard() {
+  const [isPlayerA, setIsPlayerA] = useState(true);
+  return (
+    <div>
+      {isPlayerA ? (
+        <Counter key="Taylor" person="Taylor" />
+      ) : (
+        <Counter key="Sarah" person="Sarah" />
+      )}
+      <button onClick={() => {
+        setIsPlayerA(!isPlayerA);
+      }}>
+        Next player!
+      </button>
+    </div>
+  );
+}
+```
+
+## 챌린지1: 입력 문자열이 사라지는 것 고치기
+
+## 챌린지2: 두 필드 맞바꾸기
+
+## 챌린지5: 배열에서 잘못 지정된 state 고치기
