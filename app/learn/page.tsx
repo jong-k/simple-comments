@@ -12,6 +12,9 @@ export default function Learn() {
       <Link href="/learn/managing-state">
         <h2>Managing State</h2>
       </Link>
+      <Link href="/learn/escape-hatches">
+        <h2>Escape Hatches</h2>
+      </Link>
     </div>
   );
 }
