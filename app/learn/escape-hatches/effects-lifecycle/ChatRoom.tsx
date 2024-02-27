@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
-import { createConnection } from "./ChatUtils";
+import {
+  createEncryptedConnection,
+  createUnencryptedConnection,
+} from "./ChatUtils";
 
-const serverUrl = "https://localhost:1234";
+interface ChatRoomProps {
+  roomId: string;
+  isEncrypted: boolean;
+}
 
-export default function ChatRoom({ roomId }: { roomId: string }) {
+export default function ChatRoom({ roomId, isEncrypted }: ChatRoomProps) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId);
+    const createConnection = isEncrypted
+      ? createEncryptedConnection
+      : createUnencryptedConnection;
+    const connection = createConnection(roomId);
     connection.connect();
     return () => connection.disconnect();
-    // 종속성 배열이 없다면, input 입력으로 message state가 바뀔 때마다 effect가 실행된다
-  }, [roomId]);
+  }, [roomId, isEncrypted]);
 
   return (
     <>

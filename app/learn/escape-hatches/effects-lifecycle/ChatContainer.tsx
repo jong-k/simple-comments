@@ -3,6 +3,8 @@ import ChatRoom from "./ChatRoom";
 
 export default function ChatContainer() {
   const [roomId, setRoomId] = useState("general");
+  const [isEncrypted, setIsEncrypted] = useState(false);
+
   return (
     <>
       <label>
@@ -13,8 +15,16 @@ export default function ChatContainer() {
           <option value="music">music</option>
         </select>
       </label>
+      <label>
+        <input
+          type="checkbox"
+          checked={isEncrypted}
+          onChange={(e) => setIsEncrypted(e.target.checked)}
+        />
+        Enable encryption
+      </label>
       <hr />
-      <ChatRoom roomId={roomId} />
+      <ChatRoom roomId={roomId} isEncrypted={isEncrypted} />
     </>
   );
 }

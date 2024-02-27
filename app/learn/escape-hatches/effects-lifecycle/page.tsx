@@ -2,5 +2,9 @@
 import ChatContainer from "./ChatContainer";
 
 export default function EffectsLifecycle() {
-  return <div></div>;
+  return (
+    <div>
+      <ChatContainer />
+    </div>
+  );
 }
