@@ -139,3 +139,7 @@ export default function ChatRoom({ roomId, isEncrypted }) {
   return <h1>Welcome to the {roomId} room!</h1>;
 }
 ```
+
+### 챌린지 5. 별개의 effect 구성하고 커스텀 훅으로 분리
+
+- TravelContainer.tsx

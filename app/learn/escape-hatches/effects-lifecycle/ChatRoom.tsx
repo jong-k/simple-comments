@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   createEncryptedConnection,
   createUnencryptedConnection,
-} from "./ChatUtils";
+} from "./chatUtils";
 
 interface ChatRoomProps {
   roomId: string;
