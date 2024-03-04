@@ -10,3 +10,13 @@
 - 같은 Hook을 호출하더라도 각각의 Hook 호출은 완전히 독립되어 있다
 - 여러 컴포넌트 간 state 자체를 공유해야 한다면, state를 위로 올려 전달해야 한다
 
+## Hook 사이에 상호작용하는 값 전달하기
+- 커스텀 Hook 안의 코드(effect 포함)는 리렌더링 시 재호출된다
+- 또한 가장 최신의 props와 state를 전달받는다
+  - 그리고 커스텀 Hook 내부의 effect가 props나 state를 의존성으로 갖고 있다면, 재실행된다
+
+## 커스텀 Hook에 이벤트 핸들러 넘겨주기
+> experimental API 이므로 아직 안정화버전에 반영 X
+
+### useEffectEvent
+만약 
