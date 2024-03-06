@@ -92,3 +92,14 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 ```
 
 - 이제 부모 컴포넌트(ChatRoom 컴포넌트)가 리렌더링되어도 커스텀 Hook의 Effect가 재실행되지 않음(채팅방에 재연결되지 않음)
+
+## 언제 커스텀 Hook을 사용해야 하는지
+- 기본적으로 Effect는 로직에 따라 분리하는 것이 옳다
+  - 예) 나라 이름 리스트 불러오는 Effect, 도시 이름 리스트 불러오는 Effect 분리
+- 컴포넌트에서 커스텀 훅을 통해 로직(Effect)를 숨기면, 추후 팀원들이 컴포넌트에 불필요한 의존성을 추가하는 것을 막을 수 있다
+- 기본적으로 useEffect는 도피구이므로 최소화하여 사용하는 것이 좋다(React에서 잠깐 벗어나는 것이기 때문에)
+
+## 커스텀 Hook으로 Effect를 감싸는 것이 종종 유용한 이유
+- 매우 명확하게 Effect로 주고받는 데이터 흐름을 만들 때
+- 컴포넌트가 Effect의 정확한 실행보다 목적에 집중하도록 할 때
+- React가 새 기능을 추가할 때, 다른 컴포넌트의 변경 없이 이 Effect를 삭제할 수 있을 때
