@@ -1,6 +1,6 @@
 import { fetchData } from "./data";
 
-// Note: this component is written using an experimental API
+// Note: this components is written using an experimental API
 // that's not yet available in stable versions of React.
 
 // For a realistic example you can follow today, try a framework
