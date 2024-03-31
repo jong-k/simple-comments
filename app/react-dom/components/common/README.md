@@ -13,10 +13,16 @@
   - boolean 타입과 같은 빈 노드
   - React 노드로 이루어진 배열
   - 컴포넌트 내부의 콘텐츠 지정
+
 ### dangerouslySetInnerHTML
 - DOM 노드의 innerHTML 프로퍼티를 덮어쓰고 전달된 HTML을 내부에 표시
 - XSS 공격에 취약
 - children과 동시 사용 불가
+- 예시
+```jsx
+const markup = { __html: '<p>some raw html</p>' };
+return <div dangerouslySetInnerHTML={markup} />;
+```
 ### ref
 - ref 객체, ref 콜백 함수 등
 - ref 콜백 함수
@@ -42,9 +48,79 @@
 
 ## React Event 객체
 이벤트 핸들러는 React Event(synthetic event - 합성 이벤트) 를 매개변수로 받음
+- 기본 브라우저 이벤트가 필요할 경우 `e.nativeEvent` 사용
 
 ```jsx
 <button onClick={e => {
   console.log(e); // React event object
 }} />
+```
+
+### 프로퍼티
+- currentTarget: 이벤트 핸들러가 부착된 DOM 노드 반환
+- target: 이벤트가 발생한 DOM 노드 반환
+
+### 메서드
+- preventDefault(): 이벤트에 대한 기본 브라우저 동작 방지
+- stopPropagation(): React 트리를 통한 이벤트 전파 중지
+
+### 기타 Event
+AnimationEvent: CSS 애니메이션 이벤트
+- onAnimationStart
+- onAnimationIteration
+- onAnimationEnd
+
+ClipboardEvent: 클립보드 API 이벤트
+- onCopy
+- onCut
+- onPaste
+
+DragEvent: HTML 드래그 앤 드롭 API 이벤트
+- 상속된 MouseEvent 프로퍼티도 포함
+```jsx
+<>
+  <div
+    draggable={true}
+    onDragStart={e => console.log('onDragStart')}
+    onDragEnd={e => console.log('onDragEnd')}
+  >
+    Drag source
+  </div>
+
+  <div
+    onDragEnter={e => console.log('onDragEnter')}
+    onDragLeave={e => console.log('onDragLeave')}
+    onDragOver={e => { e.preventDefault(); console.log('onDragOver'); }}
+    onDrop={e => console.log('onDrop')}
+  >
+    Drop target
+  </div>
+</>
+```
+
+등등...
+
+## style 적용
+style 어트리뷰트에 일반 객체를 전달하여 style 적용
+
+### 여러 CSS 클래스를 조건부로 적용하려면
+JavaScript를 사용하여 className 문자열을 직접 생성해야 함
+- 예) `className={"row " + (isSelected ? "selected" : "")}`
+- 가독성을 높이기 위해 classnames 같은 헬퍼 라이브러리 사용 가능
+
+```jsx
+import cn from 'classnames';
+
+function Row({ isSelected, size }) {
+  return (
+    <div className={cn('row', {
+      selected: isSelected,
+      large: size === 'large',
+      small: size === 'small',
+      // row selected large small
+    })}>
+      ...
+    </div>
+  );
+}
 ```
