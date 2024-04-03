@@ -9,6 +9,9 @@ export default function Home() {
       <Link href="/react">
         <h2 className="text-2xl">React</h2>
       </Link>
+      <Link href="/react-dom">
+        <h2 className="text-2xl">React DOM</h2>
+      </Link>
     </div>
   );
 }
