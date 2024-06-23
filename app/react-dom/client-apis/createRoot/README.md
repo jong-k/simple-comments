@@ -91,7 +91,9 @@ root.render(<App />);
   </head>
   <body>
     <!-- This is the DOM node -->
-    <div id="root"></div>
+    <div id="root">
+      
+    </div>
   </body>
 </html>
 ```

@@ -2,17 +2,22 @@
 > e.g. <div> 처럼 모든 내장 브라우저 컴포넌트는 공통의 props와 이벤트를 지원한다
 
 ## 공통 props
+```jsx
+<Sample>
+  {children}
+</Sample>
+```
 ### children
-- React 노드
+- React 노드: React.Node
   - 엘리먼트
   - 문자열
   - 숫자
   - portal
   - null
   - undefined
-  - boolean 타입과 같은 빈 노드
+  - boolean 타입과 같은 빈 노드<></>
   - React 노드로 이루어진 배열
-  - 컴포넌트 내부의 콘텐츠 지정
+  - 컴포넌트 내부의 콘텐츠 지정 innerContents
 
 ### dangerouslySetInnerHTML
 - DOM 노드의 innerHTML 프로퍼티를 덮어쓰고 전달된 HTML을 내부에 표시
@@ -62,6 +67,7 @@ return <div dangerouslySetInnerHTML={markup} />;
 
 ### 메서드
 - preventDefault(): 이벤트에 대한 기본 브라우저 동작 방지
+  - form submit -> refresh
 - stopPropagation(): React 트리를 통한 이벤트 전파 중지
 
 ### 기타 Event
